@@ -107,7 +107,39 @@ git push -u origin master
 ```
 cp -R HardCandy-Jekyll-master/* /目录/myBlog
 ```
- 
+
+在 myBlog 目录内执行命令，启动 jekyll
+
+```
+bundle exec jekyll serve
+```
+
+输出
+
+```
+Server address: http://127.0.0.1:4000
+Server running... press ctrl-c to stop.
+```
+
+则表明正常启动，**ctrl-c** 便可停止 jekyll 
+
+如果出现以下输出
+
+```
+jekyll 3.8.1 | Error:  Address already in use - bind(2) for 127.0.0.1:4000
+```
+
+则表明上一次的启动并未正常停止
+
+```
+ps aux | grep jekyll
+```
+搜索 jekyll 的进程，使用命令杀掉进程
+
+```
+kill -9 进程ID
+```
+再重新执行启动 jekyll 的命令就可以了。
 执行Git命令，推送到 Github 上
 
 ```
